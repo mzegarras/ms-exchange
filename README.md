@@ -37,6 +37,7 @@ mvn verify
 mvn verify
 docker-compose build
 docker-compose push ms
+docker-compose up
 ```
 
 **Test**
