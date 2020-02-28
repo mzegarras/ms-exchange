@@ -58,3 +58,11 @@ curl --location --request POST 'http://localhost:8080/exchanges' \
     }
 }'
 ```
+
+**Load**
+
+
+```
+siege -r 1 -c 20 -v "http://localhost:8080/exchanges/USD/destinies/PEN?amount=200"
+```
+
