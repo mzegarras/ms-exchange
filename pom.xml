@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ms.exchange</groupId>
+    <artifactId>ms-exchange</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>ms-exchange</name>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.5.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+
+    </parent>
+
+    <modules>
+        <module>ms-exchange-app</module>
+        <module>ms-exchange-repository</module>
+        <module>ms-exchange-service</module>
+        <module>ms-exchange-core</module>
+
+    </modules>
+
+
+    <properties>
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <ms-exchange.version>0.0.1-SNAPSHOT</ms-exchange.version>
+        <jasync-r2dbc-mysql.version>1.0.14</jasync-r2dbc-mysql.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <nv-i18n.version>1.27</nv-i18n.version>
+        <asciidoctor-maven-plugin.version>2.0.0-RC.1</asciidoctor-maven-plugin.version>
+        <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
+        <jacoco-maven-plugin.version>0.8.5</jacoco-maven-plugin.version>
+        <spotbugs-maven-plugin.version>3.1.12.2</spotbugs-maven-plugin.version>
+        <findsecbugs-plugin.version>1.9.0</findsecbugs-plugin.version>
+        <depgraph-maven-plugin.version>3.3.0</depgraph-maven-plugin.version>
+        <maven-pmd-plugin.version>3.12.0</maven-pmd-plugin.version>
+        <jasync-r2dbc-mysql.version>1.0.14</jasync-r2dbc-mysql.version>
+        <spring-boot-starter-data-r2dbc.version>0.1.0.M3</spring-boot-starter-data-r2dbc.version>
+        <spring-boot-actuator-autoconfigure-r2dbc.version>0.1.0.M1</spring-boot-actuator-autoconfigure-r2dbc.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+    </dependencies>
+
+
+    <dependencyManagement>
+
+
+        <dependencies>
+            <dependency>
+                <groupId>ms.exchange</groupId>
+                <artifactId>ms-exchange-core</artifactId>
+                <version>${ms-exchange.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ms.exchange</groupId>
+                <artifactId>ms-exchange-service</artifactId>
+                <version>${ms-exchange.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ms.exchange</groupId>
+                <artifactId>ms-exchange-repository</artifactId>
+                <version>${ms-exchange.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.neovisionaries</groupId>
+                <artifactId>nv-i18n</artifactId>
+                <version>${nv-i18n.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.jasync-sql</groupId>
+                <artifactId>jasync-r2dbc-mysql</artifactId>
+                <version>${jasync-r2dbc-mysql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot.experimental</groupId>
+                <artifactId>spring-boot-starter-data-r2dbc</artifactId>
+                <version>${spring-boot-starter-data-r2dbc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot.experimental</groupId>
+                <artifactId>spring-boot-actuator-autoconfigure-r2dbc</artifactId>
+                <version>${spring-boot-actuator-autoconfigure-r2dbc.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.r2dbc</groupId>
+                <artifactId>r2dbc-pool</artifactId>
+            </dependency>
+
+
+
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.asciidoctor</groupId>
+                    <artifactId>asciidoctor-maven-plugin</artifactId>
+                    <version>${asciidoctor-maven-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>generate-docs</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>process-asciidoc</goal>
+                            </goals>
+                            <configuration>
+                                <backend>html</backend>
+                                <doctype>book</doctype>
+                                <outputDirectory>${project.basedir}/target/site/spring-rest-docs</outputDirectory>
+                                <attributes>
+                                    <snippets>${project.build.directory}/snippets</snippets>
+                                </attributes>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <showWarnings>true</showWarnings>
+                    <compilerArgs>
+                        <arg>-Xlint:all</arg>
+                        <arg>-Xlint:-processing</arg>
+                        <arg>-Werror</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${maven-release-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>pre-unit-test</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                            <goal>prepare-agent-integration</goal>
+                            <goal>report</goal>
+                            <goal>report-integration</goal>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <rules>
+                        <rule>
+                            <element>BUNDLE</element>
+                            <excludes>
+                                <exclude>*Test</exclude>
+                            </excludes>
+                            <limits>
+                                <limit>
+                                    <counter>INSTRUCTION</counter>
+                                    <value>COVEREDRATIO</value>
+                                    <minimum>50%</minimum>
+                                </limit>
+                            </limits>
+                        </rule>
+                    </rules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>${maven-pmd-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                            <goal>cpd-check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sourceEncoding>utf-8</sourceEncoding>
+                    <minimumTokens>100</minimumTokens>
+                    <analysisCache>true</analysisCache>
+                    <printFailingErrors>true</printFailingErrors>
+                    <linkXRef>false</linkXRef>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>${spotbugs-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <threshold>low</threshold>
+                    <plugins>
+                        <plugin>
+                            <groupId>com.h3xstream.findsecbugs</groupId>
+                            <artifactId>findsecbugs-plugin</artifactId>
+                            <version>${findsecbugs-plugin.version}</version>
+                        </plugin>
+                    </plugins>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.github.ferstl</groupId>
+                <artifactId>depgraph-maven-plugin</artifactId>
+                <version>${depgraph-maven-plugin.version}</version>
+                <configuration>
+                    <outputDirectory>${project.basedir}/target/site/depgraph</outputDirectory>
+                    <useArtifactIdInFileName>true</useArtifactIdInFileName>
+                    <createImage>true</createImage>
+                    <scope>runtime</scope>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <repository>
+            <id>spring-libs-milestone</id>
+            <url>https://repo.spring.io/libs-milestone</url>
+        </repository>
+        <repository>
+            <id>spring-libs-snapshot</id>
+            <url>https://repo.spring.io/libs-snapshot</url>
+        </repository>
+    </repositories>
+</project>

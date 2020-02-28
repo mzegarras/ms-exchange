@@ -1,0 +1,22 @@
+version: '3'
+services:
+  ms:
+    image: "mzegarra/msexchange:1.0.0"
+    build:
+      context: ms-exchange-app
+      dockerfile: ./src/main/docker/Dockerfile
+    ports:
+      - 8080:8080
+    environment:
+      DB_SERVER: db
+      DB_PORT: 3306
+      DB_DATABASE: exchanges
+      DB_USER: root
+      DB_PASSWORD: password
+  db:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: exchanges

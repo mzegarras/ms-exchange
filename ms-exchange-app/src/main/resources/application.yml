@@ -1,0 +1,20 @@
+
+ms.exchanges:
+  db:
+    host: ${DB_SERVER:localhost}
+    port: ${DB_PORT:3306}
+    database: ${DB_DATABASE:exchanges}
+    userName: ${DB_USER:root}
+    password: ${DB_PASSWORD:password}
+
+
+# TODO: Flyway and R2DBC are not compatible yet.
+spring:
+  datasource:
+  flyway:
+    enabled: true
+    url: jdbc:mysql://${ms.exchanges.db.host}:${ms.exchanges.db.port}/${ms.exchanges.db.database}
+    user: ${ms.exchanges.db.username}
+    password: ${ms.exchanges.db.password}
+    schemas: ${ms.exchanges.db.database}
+    group: false

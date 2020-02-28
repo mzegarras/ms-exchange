@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>ms.exchange</groupId>
+        <artifactId>ms-exchange</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>ms-exchange-repository</artifactId>
+
+
+    <dependencies>
+
+        <dependency>
+            <groupId>ms.exchange</groupId>
+            <artifactId>ms-exchange-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.jasync-sql</groupId>
+            <artifactId>jasync-r2dbc-mysql</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot.experimental</groupId>
+            <artifactId>spring-boot-starter-data-r2dbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>
