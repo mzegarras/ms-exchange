@@ -31,7 +31,7 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'clean verify'
     codeCoverageToolOption: 'JaCoCo' # Optional. Options: none, cobertura, jaCoCo. Enabling code coverage inserts the `clean` goal into the Maven goals list when Maven runs.
-    codeCoverageClassFilesDirectories: '"ms-exchange-app/target/classes,"ms-exchange-app/target/testClasses'
+    codeCoverageClassFilesDirectories: "ms-exchange-app/target/classes,ms-exchange-app/target/testClasses"
     codeCoverageSourceDirectories: "ms-exchange-app/src/java,ms-exchange-core/src/java,ms-exchange-repository/src/java,ms-exchange-service/src/java,ms-exchange-app/src/Test,ms-exchange-core/src/Test,ms-exchange-repository/src/Test,ms-exchange-service/src/Test"
     codeCoverageFailIfEmpty: true
     checkStyleRunAnalysis: true # Optional
