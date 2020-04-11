@@ -26,8 +26,8 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'verify'
-    codeCoverageToolOption: 'none' # Optional. Options: none, cobertura, jaCoCo. Enabling code coverage inserts the `clean` goal into the Maven goals list when Maven runs.
+    goals: 'clean verify'
+    codeCoverageToolOption: 'jaCoCo' # Optional. Options: none, cobertura, jaCoCo. Enabling code coverage inserts the `clean` goal into the Maven goals list when Maven runs.
     checkStyleRunAnalysis: true # Optional
     pmdRunAnalysis: true # Optional
     findBugsRunAnalysis: false # Optional
