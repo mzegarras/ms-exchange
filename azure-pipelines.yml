@@ -28,7 +28,9 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'verify'
     codeCoverageToolOption: 'jaCoCo' # Optional. Options: none, cobertura, jaCoCo. Enabling code coverage inserts the `clean` goal into the Maven goals list when Maven runs.
-    #preserveTimestamp: false # Optional    
+    #checkStyleRunAnalysis: false # Optional
+    pmdRunAnalysis: true # Optional
+    findBugsRunAnalysis: true # Optional
 - task: Bash@3
   inputs:
     targetType: 'inline'
