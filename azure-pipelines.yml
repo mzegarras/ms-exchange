@@ -44,7 +44,7 @@ steps:
   inputs:
     command: 'build'
     dockerFile: './ms-exchange-app/src/main/docker/Dockerfile'
-    buildContext: $(Build.Repository.LocalPath)
+    buildContext: $(Build.Repository.LocalPath)/ms-exchange-app
     repository: $(TAG_CONTAINER)
  #   tags: |
 #          $(TAG_CONTAINER):$(Build.BuildId)
