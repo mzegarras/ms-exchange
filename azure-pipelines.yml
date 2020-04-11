@@ -2,6 +2,9 @@
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
+# Set variables once
+variables:
+  TAG_CONTAINER: mzegarra/ms-exchange
 
 trigger:
 - master
@@ -28,7 +31,7 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'clean verify'
     codeCoverageToolOption: 'JaCoCo' # Optional. Options: none, cobertura, jaCoCo. Enabling code coverage inserts the `clean` goal into the Maven goals list when Maven runs.
-    codeCoverageClassFilesDirectories: '**/target/classes,**/target/testClasses'
+    codeCoverageClassFilesDirectories: 'target/classes,target/testClasses'
     codeCoverageSourceDirectories: "ms-exchange-app,ms-exchange-core,ms-exchange-repository,ms-exchange-service"
     #srcDirectories: '**/src/java,**/src/Test'
     codeCoverageFailIfEmpty: true
