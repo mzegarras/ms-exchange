@@ -43,7 +43,7 @@ steps:
   displayName: Build an image
   inputs:
     command: 'build'
-    dockerFile: '**/src/main/docker/Dockerfile'
+    dockerFile: './ms-exchange-app/src/main/docker/Dockerfile'
     buildContext: $(Build.Repository.LocalPath)
     repository: $(TAG_CONTAINER)
  #   tags: |
