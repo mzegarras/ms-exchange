@@ -32,8 +32,8 @@ steps:
     goals: 'clean verify'
     codeCoverageToolOption: 'jaCoCo' # Optional. Options: none, cobertura, jaCoCo. Enabling code coverage inserts the `clean` goal into the Maven goals list when Maven runs.
     codeCoverageClassFilesDirectories : "ms-exchange-app/target/classes,ms-exchange-app/target/test-classes,ms-exchange-service/target/classes,ms-exchange-service/target/test-classes"
-    #codeCoverageSourceDirectories : "ms-exchange-app/src/main,ms-exchange-app/src/test,ms-exchange-service/src/main,ms-exchange-service/src/test"
-    codeCoverageSourceDirectories: "**/src/java,**/src/Test"
+    codeCoverageSourceDirectories : "ms-exchange-app/src/main,ms-exchange-app/src/test,ms-exchange-service/src/main,ms-exchange-service/src/test"
+    
     codeCoverageFailIfEmpty: true
     checkStyleRunAnalysis: true # Optional
     pmdRunAnalysis: true # Optional
